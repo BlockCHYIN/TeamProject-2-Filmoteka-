@@ -1,0 +1,206 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 100;
+
+  opacity: 1;
+  transition: opacity $function-time;
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.modal-team {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  max-width: 330px;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 999;
+  min-width: 280px;
+  height: 90vh;
+  background-color: $bg-primary-color;
+  padding: 40px 20px;
+  overflow-y: scroll;
+  transition: transform $function-time;
+
+  //   Tablet
+  @media screen and (min-width: 768px) {
+    min-width: 620px;
+    padding: 40px 30px;
+  }
+  //   Desktop
+  @media screen and (min-width: 1024px) {
+    min-width: 882px;
+    padding: 50px 30px;
+  }
+
+  .backdrop.is-hidden & {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+.modal-team__button-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0px;
+  background-color: transparent;
+  border: transparent;
+  border-radius: 50%;
+  color: $primary-text-color;
+  transition: background-color $function-time, border $function-time, color $function-time;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    border: $accent-color;
+    color: $bg-primary-color;
+    cursor: pointer;
+  }
+}
+
+.modal-team__icon-close {
+  display: block;
+  stroke: currentColor;
+}
+
+.modal-team__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+}
+
+.modal-team__team-name {
+  font-size: 24px;
+  text-align: center;
+  margin-left: 30px;
+  color: $accent-color;
+
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+  }
+}
+
+//
+
+.modal-team__list {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+  }
+}
+
+.modal-team__item {
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px;
+  height: 300px;
+
+  &:hover .card-front,
+  &:focus .card-front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover .card-back,
+  &:focus .card-back {
+    transform: rotateY(360deg);
+  }
+  &:not(:last-child) {
+    @media screen and (max-width: 767px) {
+      margin-bottom: 15px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 60px) / 2);
+    margin: 15px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: calc((100% - 90px) / 3);
+    margin: 15px;
+  }
+}
+
+.card-back,
+.card-front {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: 1s;
+}
+
+.card-back {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  transform: rotateY(180deg);
+
+  background-color: $accent-color;
+  color: $light-text-color;
+  text-align: center;
+}
+
+.card-front img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.modal-team__description {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.modal-team__name {
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icons__item {
+  color: $light-text-color;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &:hover svg,
+  &:focus svg {
+    fill: currentColor;
+  }
+}
+
+.social-icons a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
