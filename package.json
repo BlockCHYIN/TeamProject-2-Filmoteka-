@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://RomanKhrapai.github.io/filmoteka",
+  "homepage": "https://github.com/BlockCHYIN/TeamProject-2-Filmoteka-",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /filmoteka/"
+    "build": "parcel build src/*.html --public-url /TeamProject-2-Filmoteka-/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RomanKhrapai/filmoteka.git"
+    "url": "git+https://github.com/BlockCHYIN/TeamProject-2-Filmoteka-.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
